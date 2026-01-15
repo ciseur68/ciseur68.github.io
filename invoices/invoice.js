@@ -71,16 +71,16 @@ const data = {
 };
 let app = undefined;
 
-Vue.filter('currency', formatNumberAsUSD)
-function formatNumberAsUSD(value) {
+Vue.filter('currency', formatNumberAsEUR)
+function formatNumberAsEUR(value) {
   if (typeof value !== "number") {
     return value || '—';      // falsy value would be shown as a dash.
   }
   value = Math.round(value * 100) / 100;    // Round to nearest cent.
   value = (value === -0 ? 0 : value);       // Avoid negative zero.
 
-  const result = value.toLocaleString('en', {
-    style: 'currency', currency: 'USD'
+  const result = value.toLocaleString('fr', {
+    style: 'currency', currency: 'EUR'
   })
   if (result.includes('NaN')) {
     return value;
@@ -100,7 +100,7 @@ Vue.filter('asDate', function(value) {
     value = new Date(value * 1000);
   }
   const date = moment.utc(value)
-  return date.isValid() ? date.format('MMMM DD, YYYY') : value;
+  return date.isValid() ? date.format('DD/MM/YYYY') : value;
 });
 
 function tweakUrl(url) {
