@@ -85,16 +85,16 @@
                 <div class="newlined">{{ business }}</div>
               </template>
               <template v-else>
-                <div>{{ business.Name }}</div>
-                <template v-if="business.Street1">
-                  {{ business.Street1 }},
+                <div>{{ business.Entreprise }}</div>
+                <template v-if="business.Adresse">
+                  {{ business.Adresse }},
                 </template>
                 <template v-if="business.Street2">
                   {{ business.Street2 }},
                 </template>
-                {{ business.City }} {{ business.State }} {{ business.Zip }}
-                <template v-if="business.Country">
-                  <br />{{ business.Country }}
+                {{ business.Code_Postal }} {{ business.Ville }}
+                <template v-if="business.Pays">
+                  <br />{{ business.Pays }}
                 </template>
               </template>
             </div>
